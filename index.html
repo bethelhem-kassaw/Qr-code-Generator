@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily:{
+                sans:['Poppins', 'sans-sarif']
+              }
+            }
+          }
+        }
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/script.js" defer></script>
+    <style>
+        #spinner {
+            display: none;
+        }
+    </style>
+    <title>QR Code Generator</title>
+</head>
+<body>
+   <div class="max-w-xl mx-auto mt-20 " >
+<div class="flex md:flex-row flex-col gap-3 justify-between items-center ">
+<div class=" flex flex-col gap-2 p-3 justify-center">
+<div class="text-xl font-bold">
+    QR Code Generator 
+</div>
+<div class="text-xs font-extralight">
+    QR Code code consisting of an array of black 
+    and white squares, typically used for storing 
+    URLs or other information for reading by 
+    the camera on a smartphone.
+</div>
+<div class="text-md font-light">
+    Enter your URL below to generate a qr code  and download the image
+</div>
+<form id="generate-form"  class="flex flex-col gap-3">
+<div class="">
+    <input id="url" type="url" placeholder="Enter a URL" class=" border rounded h-10 w-full"/>
+</div>
+<div class="">
+    <select id="size" class="border w-full h-10 rounded">
+        
+        <option value='100' >
+            100x100
+        </option>
+        <option value='200' >
+            200x200
+        </option>
+        <option value='300' selected>
+            300x300
+        </option>
+        <option value='400' >
+            400x400
+        </option>
+        <option value='500' >
+            500x500
+        </option>
+        <option value='600' >
+            600x600
+        </option>
+        <option value='700' >
+            700x700
+        </option>
+    </select>
+</div>
+
+<div>
+    <button type="submit" class="border rounded w-full h-10 bg-gray-600 text-white font-bold">
+        Generate QR code
+    </button>
+</div>
+</form>
+</div>
+<div>
+    <img src="./img/7228-qr-code.gif" width="400" height="400"/>
+</div>
+</div>
+
+<div id="generated" class="max-w-5xl m-auto flex flex-col text-center align-center justify-center mt-20">
+<!-- spinner -->
+<div>
+    <img id="spinner" role="status" src="./img/Rolling-1s-200px.svg"/>
+</div>
+<!-- qr code show  -->
+<div id="qrcode" class="m-auto">
+
+</div>
+</div>
+   </div>
+</body>
+</html>
